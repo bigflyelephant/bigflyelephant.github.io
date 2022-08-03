@@ -14,18 +14,18 @@ export default defineConfig({
     },
     plugins: [
         react(),
-        legacy({
-            targets: ['defaults', '> 0.5%']
-        }),
-        Compression({
-            algorithm:'gzip'
-        }),
-        Compression({
-            algorithm:'deflateRaw'
-        }),
-        Compression({
-            algorithm:'brotliCompress'
-        }),
+        // legacy({
+        //     targets: ['defaults', '> 0.5%']
+        // }),
+        // Compression({
+        //     algorithm:'gzip'
+        // }),
+        // Compression({
+        //     algorithm:'deflateRaw'
+        // }),
+        // Compression({
+        //     algorithm:'brotliCompress'
+        // }),
     ],
 
 })
