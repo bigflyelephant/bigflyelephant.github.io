@@ -80,7 +80,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+#dist
 
 # Gatsby files
 .cache/
@@ -100,7 +100,7 @@ dist
 # DynamoDB Local files
 .dynamodb/
 .idea/
-dist/
+#dist/
 # TernJS port file
 .tern-port
 /dist/

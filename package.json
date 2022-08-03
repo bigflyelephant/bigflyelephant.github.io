@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "publish": "yarn build && git subtree push --prefix dist origin gh-pages"
+    "publish": "bash scripts/pubilsh.sh"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -16,8 +16,12 @@
   "devDependencies": {
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-legacy": "^2.0.0",
     "@vitejs/plugin-react": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "terser": "^5.14.2",
     "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+    "vite": "^3.0.0",
+    "vite-compression-plugin": "^0.0.4"
   }
 }
