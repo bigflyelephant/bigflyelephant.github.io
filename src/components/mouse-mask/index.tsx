@@ -17,7 +17,7 @@ export default function MouseMask (props: {
           left: x,
 
         }}>
-          13131
+          131311111
         </div>
       ), document.body)
     }
