@@ -89,7 +89,6 @@ const GenQr = () => {
             {!!value.value && <>
                 <Button onClick={handleDownload}>下载图片</Button>
                 <QRCode bgColor='#FFF' type='canvas' {...value} />
-
             </>
             }
         </div>
@@ -132,7 +131,7 @@ const AnalysisQr = () => {
         </div>
         {!!fileURL && <Card>
             <Card.Grid style={{ width: '50%' }}> <img className={styles.img} src={fileURL} /></Card.Grid>
-            <Card.Grid style={{ width: '50%' }}>
+            <Card.Grid className={styles.text} style={{ width: '50%' }}>
                 {status === 'error' && <Result title='no info' status={'error'} />}
                 {status === 'loading' && <Spin size='large' className={styles.loading} />}
                 {status === 'done' && result}</Card.Grid>
