@@ -105,3 +105,5 @@ typings/
 .tern-port
 /dist/
 ./dist
+./dev-dist
+/dev-dist/

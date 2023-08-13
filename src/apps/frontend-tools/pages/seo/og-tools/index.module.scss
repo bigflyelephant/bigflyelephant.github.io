@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  padding: 24px;
+  gap: 24px 24px;
+
+  max-width: 1280px;
+  margin: 0 auto;
+
+  & > * {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  .content-wrapper {
+    flex: auto;
+    overflow-x: hidden;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+    .form-wrapper {
+      flex: 0 0 348px;
+    }
+
+  }
+  @media screen and (max-width: 767px) {
+    flex-wrap: wrap;
+    .form-wrapper {
+      flex: 0 0 100%;
+    }
+  }
+}
+.buttons{
+    display: flex;
+    gap:8px;
+    &>*{
+        flex:1 1 auto;
+    }
+}

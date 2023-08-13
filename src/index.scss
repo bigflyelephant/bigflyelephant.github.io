@@ -1,5 +1,13 @@
-html,body,#root{
+html,
+body,
+#root {
   margin: 0;
   border: 0;
   padding: 0;
+  background-color: #e6e6e6;
+  min-height: 100vh;
+  &,*{
+      box-sizing: border-box;
+  }
+  // line-height: 0;
 }

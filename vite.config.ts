@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import legacy from "@vitejs/plugin-legacy";
-import Compression from "vite-compression-plugin";
+import Compression from "vite-plugin-compression2";
 import mkcert from "vite-plugin-mkcert";
-import { terser } from "rollup-plugin-terser";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
+import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,39 +20,31 @@ export default defineConfig({
   server: {
     https: true,
   },
-  build: {
-    rollupOptions: {
-      plugins: [
-        terser({
-          compress: {
-            drop_console:true,
-            drop_debugger:true,
-            passes:10
-          },
-        }),
-      ],
-    },
-  },
   css: {
     modules: {
       localsConvention: "camelCaseOnly",
     },
+    postcss:'./postcss.config.cjs'
   },
   plugins: [
     react(),
     mkcert(),
     legacy({
-      targets: ["defaults", "> 0.001%"],
-    }),
-    Compression({
-      threshold: 128000,
-      algorithm: "gzip",
-      loginfo: "silent",
+      targets: ["> 0.001%", "> 0.01%", "> 0.1%", "IE 6"],
     }),
     VitePWA({
+      injectRegister: "auto",
       registerType: "autoUpdate",
       workbox: {
-        globPatterns: ["**/*.{js,css,ico,png,svg,jpg,jpeg,gif,bmp}","**/*.{js,css,ico,png,svg,jpg,jpeg,gif,bmp}.gz"],
+        clientsClaim: true,
+        skipWaiting: true,
+        globPatterns: [
+          "**/*.{js,css,ico,png,svg,jpg,jpeg,gif,bmp}",
+          "**/*.{js,css,ico,png,svg,jpg,jpeg,gif,bmp}.gz",
+        ],
+      },
+      devOptions: {
+        enabled: true,
       },
       manifest: {
         name: "ZQA's HomePage",
@@ -74,6 +66,20 @@ export default defineConfig({
           },
         ],
       },
+    }),
+    Compression({
+      algorithm: "gzip",
+      exclude: [/\.(br)$/, /\.(gz)$/],
+      threshold: 40 * 1024,
+    }),
+    Compression({
+      algorithm: "brotliCompress",
+      exclude: [/\.(br)$/, /\.(gz)$/],
+      threshold: 40 * 1024,
+    }),
+    visualizer({
+      gzipSize: true,
+      brotliSize: true,
     }),
   ],
   optimizeDeps: {
