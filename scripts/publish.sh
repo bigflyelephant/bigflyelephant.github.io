@@ -1,4 +1,5 @@
-yarn build
+pnpm i
+pnpm build
 cd ./dist
 git init
 git branch gh-pages

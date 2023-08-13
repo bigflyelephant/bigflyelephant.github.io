@@ -7,7 +7,7 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "publish": "bash scripts/pubilsh.sh",
+    "publish-web": "sh ./scripts/publish.sh",
     "eslint:init": "eslint --init"
   },
   "dependencies": {
