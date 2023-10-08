@@ -1,8 +1,7 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Preview from '@/apps/home/pages/preview'
-
-export const baseRoute= 'home'
+import { baseRoute } from '.'
 
 export default function Home () {
   return <Routes>

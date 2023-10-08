@@ -4,7 +4,7 @@ import Overview from './pages/overview'
 import OgTools from './pages/seo/og-tools'
 import QrCodeUtils from './pages/qr-code-utils'
 
-export const baseRoute = 'frontend-tools'
+
 
 export default function Music () {
   return (
